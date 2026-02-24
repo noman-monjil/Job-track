@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font awesome  icon -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+
+    <title>Job Track</title>
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+
+<body class=" bg-[#F8FAFC]">
+    <section class=" pb-4  w-3/4 mx-auto ">
+        <div>
+            <h1 class="font-bold  text-[24px]  lg:text-[32px] py-3 ">Job Application Tracker</h1>
+
+            <div class="parent-card grid grid-cols-1 md:grid-cols-3 justify-between gap-[20px] ">
+                <div class="  bg-white w-full rounded-md p-2">
+                    <h3 class="font-[500px] text-[14px] ">Total</h3>
+                    <p id="Total" class="text-black font-bold">0</p>
+                </div>
+                <div  class="  bg-white rounded-md p-2">
+                    <h3 class="font-[500px] text-[14px] ">Interview</h3>
+                    <p id="interviewNumber"  class="text-green-500 font-bold">0</p>
+                </div>
+                <div  class=" bg-white w-full rounded-md p-2">
+                    <h3 class="font-[500px] text-[14px] ">Rejected</h3>
+                    <p id="rejectedNumber" class="text-red-500 font-bold">0</p>
+                </div>
+
+
+            </div>
+        </div>
+        <hr class="border border-[#e6e7e9FF] my-7  ">
+
+    </section>
+
+    <!--head  Button section  --------------------------------------------->
+<main> 
+    <section class="   w-3/4 mx-auto">
+        <div class="head pb-4">
+            <div class="flex  flex-nowrap items-center justify-between  gap-2">
+
+                <h2 class="font-bold  text-[16px]  pb-3 ">Available jobs</h2>
+                <p class=" text-gray-500 "><span id="totalJobs">0</span> jobs</p>
+            </div>
+            <div class="button gap-6 flex ">
+                <button id="all-button" onclick="show(`all-button`)"  
+                    class="btn text-[14px] bg-blue-500 text-white  hover:bg-[#3b82f6] hover:text-white">All</button>
+                    <!-- bg-[#ffffff] text-[#64748b] -->
+                     
+                <button
+                   id="interview-btn" onclick="show(`interview-btn`)" class="btn text-[14px] bg-[#ffffff] text-[#64748b] hover:bg-[#3b82f6] hover:text-white">Interview</button>
+                <button id="rejected-btn"  onclick="show(`rejected-btn`)"
+                    class="btn text-[14px] bg-[#ffffff] text-[#64748b] hover:bg-[#3b82f6] hover:text-white">Rejected</button>
+                    
+            </div>
+        </div>
+    </section>
+
+
+    <section id="filterSection" class=" pb-4  w-3/4 mx-auto my-9 hidden ">
+
+    </section>
+
+    <!-- card section-------------------------------------- -->
+  
+
+    <section id="allCard" class="parent-jobs-card  pb-4  w-3/4 mx-auto my-2">
+        <!-- job 1 -->
+        <div id="job1" class="child-jobs-card job1 p-6 bg-white rounded-[8px] my-9">
+            <div class="childDiv ">
+                <div class="flex justify-between">
+                    <div>
+
+                        <h4 class="font-semibold companyName">noman First Crop</h4>
+                        <p class="text-[#64748b] jobTitle">React Native Developer</p>
+                    </div>
+              
+
+                     <button class=" btn bg-white cursor-pointer border h-8 w-8 border-[#f1f2f4] rounded-full"><i class="fa-solid fa-trash"></i></button> 
+                 
+
+                    
+                    
+
+                </div>
+                <ul class="flex flex-col pl-4  gap-2 md:flex-row md:pl-0 md:gap-7 list-disc my-5 text-[#64748b]">
+                    <li class="md:list-none item1 "> Remote</li>
+                    <li class="item2">Full-time</li>
+                    <li class="item3">$13000-$15000</li>
+                </ul>
+
+            </div>
+            <div class="parent-Applied-button">
+                <div class="apply-btn"> 
+                <button class="btn  bg-[#eef4ff] text[#002c5c]">Not Applied</button>
+                </div>
+                <br>
+                <p class="pt-2 pb-5 jobDescription">Build cross-platform mobile applications using React Native. Work on products used
+                    by millions of users worldwide.</p>
+                    <div class="button"> 
+                <button 
+                    class="btn interview-btn border-[1.5px] border-[#10B981] text-[#10B981] hover:bg-green-400  hover:text-white bg-white mr-2 rouded-[4px]">INTERVIEW</button>
+                <button
+                    class="btn rejected-btn border-[1.5px] border-[#ef4444] text-[#ef4444]  hover:text-white hover:bg-red-400 bg-white rouded-[4px]">REJECTED</button>
+           </div>
+           
+                </div>
+
+
+        </div>
+        <!-- job 2 -->
+          <div id="job1" class="child-jobs-card job1 p-6 bg-white rounded-[8px] my-9">
+            <div class="childDiv ">
+                <div class="flex justify-between">
+                    <div>
+
+                        <h4 class="font-semibold companyName">WebFlow Agency</h4>
+                        <p class="text-[#64748b] jobTitle">Web Designer & Developer</p>
+                    </div>
+              
+
+                     <button class=" btn bg-white cursor-pointer border h-8 w-8 border-[#f1f2f4] rounded-full"><i class="fa-solid fa-trash"></i></button> 
+                 
+
+                    
+                    
+
+                </div>
+                <ul class="flex flex-col pl-4  gap-2 md:flex-row md:pl-0 md:gap-7 list-disc my-5 text-[#64748b]">
+                    <li class="md:list-none item1 ">Los Angeles, CA</li>
+                    <li class="item2"> Part-time</li>
+                    <li class="item3"> $80,000 - $120,000</li>
+                </ul>
+
+            </div>
+            <div class="parent-Applied-button">
+                <div class="apply-btn"> 
+                <button class="btn  bg-[#eef4ff] text[#002c5c]">Not Applied</button>
+                </div>
+                <br>
+                <p class="pt-2 pb-5 jobDescription">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    <div class="button"> 
+                <button 
+                    class="btn interview-btn border-[1.5px] border-[#10B981] text-[#10B981] hover:bg-green-400  hover:text-white bg-white mr-2 rouded-[4px]">INTERVIEW</button>
+                <button
+                    class="btn rejected-btn border-[1.5px] border-[#ef4444] text-[#ef4444]  hover:text-white hover:bg-red-400 bg-white rouded-[4px]">REJECTED</button>
+           </div>
+           
+                </div>
+
+
+        </div>
+       
+          <div id="job1" class="child-jobs-card job1 p-6 bg-white rounded-[8px] my-9">
+            <div class="childDiv ">
+                <div class="flex justify-between">
+                    <div>
+
+                        <h4 class="font-semibold companyName">WebFlow Agency</h4>
+                        <p class="text-[#64748b] jobTitle">Web Designer & Developer</p>
+                    </div>
+              
+
+                     <button class=" btn bg-white cursor-pointer border h-8 w-8 border-[#f1f2f4] rounded-full"><i class="fa-solid fa-trash"></i></button> 
+                 
+
+                    
+                    
+
+                </div>
+                <ul class="flex flex-col pl-4  gap-2 md:flex-row md:pl-0 md:gap-7 list-disc my-5 text-[#64748b]">
+                    <li class="md:list-none item1 ">Los Angeles, CA</li>
+                    <li class="item2"> Part-time</li>
+                    <li class="item3"> $80,000 - $120,000</li>
+                </ul>
+
+            </div>
+            <div class="parent-Applied-button">
+                <div class="apply-btn"> 
+                <button class="btn  bg-[#eef4ff] text[#002c5c]">Not Applied</button>
+                </div>
+                <br>
+                <p class="pt-2 pb-5 jobDescription">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    <div class="button"> 
+                <button 
+                    class="btn interview-btn border-[1.5px] border-[#10B981] text-[#10B981] hover:bg-green-400  hover:text-white bg-white mr-2 rouded-[4px]">INTERVIEW</button>
+                <button
+                    class="btn rejected-btn border-[1.5px] border-[#ef4444] text-[#ef4444]  hover:text-white hover:bg-red-400 bg-white rouded-[4px]">REJECTED</button>
+           </div>
+           
+                </div>
+
+
+        </div>
+       
+          <div id="job1" class="child-jobs-card job1 p-6 bg-white rounded-[8px] my-9">
+            <div class="childDiv ">
+                <div class="flex justify-between">
+                    <div>
+
+                        <h4 class="font-semibold companyName">WebFlow Agency</h4>
+                        <p class="text-[#64748b] jobTitle">Web Designer & Developer</p>
+                    </div>
+              
+
+                     <button class=" btn bg-white cursor-pointer border h-8 w-8 border-[#f1f2f4] rounded-full"><i class="fa-solid fa-trash"></i></button> 
+                 
+
+                    
+                    
+
+                </div>
+                <ul class="flex flex-col pl-4  gap-2 md:flex-row md:pl-0 md:gap-7 list-disc my-5 text-[#64748b]">
+                    <li class="md:list-none item1 ">Los Angeles, CA</li>
+                    <li class="item2"> Part-time</li>
+                    <li class="item3"> $80,000 - $120,000</li>
+                </ul>
+
+            </div>
+            <div class="parent-Applied-button">
+                <div class="apply-btn"> 
+                <button class="btn  bg-[#eef4ff] text[#002c5c]">Not Applied</button>
+                </div>
+                <br>
+                <p class="pt-2 pb-5 jobDescription">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    <div class="button"> 
+                <button 
+                    class="btn interview-btn border-[1.5px] border-[#10B981] text-[#10B981] hover:bg-green-400  hover:text-white bg-white mr-2 rouded-[4px]">INTERVIEW</button>
+                <button
+                    class="btn rejected-btn border-[1.5px] border-[#ef4444] text-[#ef4444]  hover:text-white hover:bg-red-400 bg-white rouded-[4px]">REJECTED</button>
+           </div>
+           
+                </div>
+
+
+        </div>
+       
+          <div id="job1" class="child-jobs-card job1 p-6 bg-white rounded-[8px] my-9">
+            <div class="childDiv ">
+                <div class="flex justify-between">
+                    <div>
+
+                        <h4 class="font-semibold companyName">WebFlow Agency</h4>
+                        <p class="text-[#64748b] jobTitle">Web Designer & Developer</p>
+                    </div>
+              
+
+                     <button class=" btn bg-white cursor-pointer border h-8 w-8 border-[#f1f2f4] rounded-full"><i class="fa-solid fa-trash"></i></button> 
+                 
+
+                    
+                    
+
+                </div>
+                <ul class="flex flex-col pl-4  gap-2 md:flex-row md:pl-0 md:gap-7 list-disc my-5 text-[#64748b]">
+                    <li class="md:list-none item1 ">Los Angeles, CA</li>
+                    <li class="item2"> Part-time</li>
+                    <li class="item3"> $80,000 - $120,000</li>
+                </ul>
+
+            </div>
+            <div class="parent-Applied-button">
+                <div class="apply-btn"> 
+                <button class="btn  bg-[#eef4ff] text[#002c5c]">Not Applied</button>
+                </div>
+                <br>
+                <p class="pt-2 pb-5 jobDescription">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    <div class="button"> 
+                <button 
+                    class="btn interview-btn border-[1.5px] border-[#10B981] text-[#10B981] hover:bg-green-400  hover:text-white bg-white mr-2 rouded-[4px]">INTERVIEW</button>
+                <button
+                    class="btn rejected-btn border-[1.5px] border-[#ef4444] text-[#ef4444]  hover:text-white hover:bg-red-400 bg-white rouded-[4px]">REJECTED</button>
+           </div>
+           
+                </div>
+
+
+        </div>
+       
+          <div id="job1" class="child-jobs-card job1 p-6 bg-white rounded-[8px] my-9">
+            <div class="childDiv ">
+                <div class="flex justify-between">
+                    <div>
+
+                        <h4 class="font-semibold companyName">WebFlow Agency</h4>
+                        <p class="text-[#64748b] jobTitle">Web Designer & Developer</p>
+                    </div>
+              
+
+                     <button class=" btn bg-white cursor-pointer border h-8 w-8 border-[#f1f2f4] rounded-full"><i class="fa-solid fa-trash"></i></button> 
+                 
+
+                    
+                    
+
+                </div>
+                <ul class="flex flex-col pl-4  gap-2 md:flex-row md:pl-0 md:gap-7 list-disc my-5 text-[#64748b]">
+                    <li class="md:list-none item1 ">Los Angeles, CA</li>
+                    <li class="item2"> Part-time</li>
+                    <li class="item3"> $80,000 - $120,000</li>
+                </ul>
+
+            </div>
+            <div class="parent-Applied-button">
+                <div class="apply-btn"> 
+                <button class="btn  bg-[#eef4ff] text[#002c5c]">Not Applied</button>
+                </div>
+                <br>
+                <p class="pt-2 pb-5 jobDescription">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    <div class="button"> 
+                <button 
+                    class="btn interview-btn border-[1.5px] border-[#10B981] text-[#10B981] hover:bg-green-400  hover:text-white bg-white mr-2 rouded-[4px]">INTERVIEW</button>
+                <button
+                    class="btn rejected-btn border-[1.5px] border-[#ef4444] text-[#ef4444]  hover:text-white hover:bg-red-400 bg-white rouded-[4px]">REJECTED</button>
+           </div>
+           
+                </div>
+
+
+        </div>
+       
+          <div id="job1" class="child-jobs-card job1 p-6 bg-white rounded-[8px] my-9">
+            <div class="childDiv ">
+                <div class="flex justify-between">
+                    <div>
+
+                        <h4 class="font-semibold companyName">WebFlow Agency</h4>
+                        <p class="text-[#64748b] jobTitle">Web Designer & Developer</p>
+                    </div>
+              
+
+                     <button class=" btn bg-white cursor-pointer border h-8 w-8 border-[#f1f2f4] rounded-full"><i class="fa-solid fa-trash"></i></button> 
+                 
+
+                    
+                    
+
+                </div>
+                <ul class="flex flex-col pl-4  gap-2 md:flex-row md:pl-0 md:gap-7 list-disc my-5 text-[#64748b]">
+                    <li class="md:list-none item1 ">Los Angeles, CA</li>
+                    <li class="item2"> Part-time</li>
+                    <li class="item3"> $80,000 - $120,000</li>
+                </ul>
+
+            </div>
+            <div class="parent-Applied-button">
+                <div class="apply-btn"> 
+                <button class="btn  bg-[#eef4ff] text[#002c5c]">Not Applied</button>
+                </div>
+                <br>
+                <p class="pt-2 pb-5 jobDescription">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    <div class="button"> 
+                <button 
+                    class="btn interview-btn border-[1.5px] border-[#10B981] text-[#10B981] hover:bg-green-400  hover:text-white bg-white mr-2 rouded-[4px]">INTERVIEW</button>
+                <button
+                    class="btn rejected-btn border-[1.5px] border-[#ef4444] text-[#ef4444]  hover:text-white hover:bg-red-400 bg-white rouded-[4px]">REJECTED</button>
+           </div>
+           
+                </div>
+
+
+        </div>
+       
+          <div id="job1" class="child-jobs-card job1 p-6 bg-white rounded-[8px] my-9">
+            <div class="childDiv ">
+                <div class="flex justify-between">
+                    <div>
+
+                        <h4 class="font-semibold companyName">WebFlow Agency</h4>
+                        <p class="text-[#64748b] jobTitle">Web Designer & Developer</p>
+                    </div>
+              
+
+                     <button class=" btn bg-white cursor-pointer border h-8 w-8 border-[#f1f2f4] rounded-full"><i class="fa-solid fa-trash"></i></button> 
+                 
+
+                    
+                    
+
+                </div>
+                <ul class="flex flex-col pl-4  gap-2 md:flex-row md:pl-0 md:gap-7 list-disc my-5 text-[#64748b]">
+                    <li class="md:list-none item1 ">Los Angeles, CA</li>
+                    <li class="item2"> Part-time</li>
+                    <li class="item3"> $80,000 - $120,000</li>
+                </ul>
+
+            </div>
+            <div class="parent-Applied-button">
+                <div class="apply-btn"> 
+                <button class="btn  bg-[#eef4ff] text[#002c5c]">Not Applied</button>
+                </div>
+                <br>
+                <p class="pt-2 pb-5 jobDescription">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    <div class="button"> 
+                <button 
+                    class="btn interview-btn border-[1.5px] border-[#10B981] text-[#10B981] hover:bg-green-400  hover:text-white bg-white mr-2 rouded-[4px]">INTERVIEW</button>
+                <button
+                    class="btn rejected-btn border-[1.5px] border-[#ef4444] text-[#ef4444]  hover:text-white hover:bg-red-400 bg-white rouded-[4px]">REJECTED</button>
+           </div>
+           
+                </div>
+
+
+        </div>
+       
+
+
+      
+
+
+        </div>
+    </section>
+
+    </main>
+
+    
+   
+     <script src="interview.js"></script>
+     <script src="machine.js"></script>
+     <script src="rejected.js"></script>
+
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 let interviewList = [];
 let rejectedList = [];
 
-// numbering elements
+
 let Total = document.getElementById("Total");
 let interviewNumber = document.getElementById("interviewNumber");
 let rejectedNumber = document.getElementById("rejectedNumber");
@@ -10,7 +10,7 @@ let mainContainer = document.querySelector("main");
 let allCard = document.getElementById("allCard");
 let FilterSection = document.getElementById("filterSection");
 
-// count update function
+// count update 
 function calculation() {
     Total.innerText = allCard.children.length;
     interviewNumber.innerText = interviewList.length;
@@ -19,12 +19,12 @@ function calculation() {
 }
 calculation();
 
-// buttons for tabs
+// buttons 
 const allButton = document.getElementById("all-button");
 const interviewBtn = document.getElementById("interview-btn");
 const rejectedBtn = document.getElementById("rejected-btn");
 
-// render function (উপরে নিয়ে আসা হয়েছে যাতে স্বাভাবিক লাগে)
+
 function renderList(list, label, bgColor) {
     FilterSection.innerHTML = ``;
     
@@ -72,7 +72,6 @@ function renderList(list, label, bgColor) {
     }
 }
 
-// show sections
 function show(id) {
     allButton.classList.remove("bg-blue-500", "text-white");
     interviewBtn.classList.remove("bg-blue-500", "text-white");
@@ -100,10 +99,9 @@ function show(id) {
     }
 }
 
-// container click handling
+
 mainContainer.addEventListener("click", function (event) {
-    
-    // logic for interview button
+ 
     if (event.target.classList.contains('interview-btn')) {
         let parentNode = event.target.closest(".child-jobs-card");
         const companyName = parentNode.querySelector(".companyName").innerText;
@@ -123,7 +121,7 @@ mainContainer.addEventListener("click", function (event) {
         if (!allCard.classList.contains('hidden')) {
             applyBtnArea.innerHTML = `<button class="btn bg-[#10B981] text-white">Interviewing</button>`;
         } else {
-            // instant remove logic
+            
             if (rejectedBtn.classList.contains('bg-blue-500')) {
                 renderList(rejectedList, 'Rejected', 'bg-[#c94316]');
             } else {
@@ -132,8 +130,7 @@ mainContainer.addEventListener("click", function (event) {
         }
         calculation();
     } 
-    
-    // logic for rejected button
+
     else if (event.target.classList.contains('rejected-btn')) {
         let parentNode = event.target.closest(".child-jobs-card");
         const companyName = parentNode.querySelector(".companyName").innerText;
@@ -153,7 +150,7 @@ mainContainer.addEventListener("click", function (event) {
         if (!allCard.classList.contains('hidden')) {
             applyBtnArea.innerHTML = `<button class="btn bg-[#c94316] text-white">Rejected</button>`;
         } else {
-            // instant remove from current list
+         
             if (interviewBtn.classList.contains('bg-blue-500')) {
                 renderList(interviewList, 'Interviewing', 'bg-[#10B981]');
             } else {
@@ -163,7 +160,6 @@ mainContainer.addEventListener("click", function (event) {
         calculation();
     }
 
-    // delete icon logic
     if (event.target.classList.contains('fa-trash') || event.target.closest('.fa-trash')) {
         let parentNode = event.target.closest(".child-jobs-card");
         const companyName = parentNode.querySelector(".companyName").innerText;
@@ -173,6 +169,7 @@ mainContainer.addEventListener("click", function (event) {
 
         if (!allCard.classList.contains('hidden')) {
             parentNode.remove();
+         
         } else {
             if (interviewBtn.classList.contains('bg-blue-500')) {
                 renderList(interviewList, 'Interviewing', 'bg-[#10B981]');
